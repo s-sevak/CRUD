@@ -1,0 +1,31 @@
+# Node modules
+node_modules/
+
+# PHPStorm project files
+.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Docker-related files
+docker-compose.override.yml
+docker/*.env
+docker/nginx/*.conf
+docker/php-fpm/*.conf
+
+# PHP logs and cache
+*.log
+*.cache
+*.php~
+
+# Composer vendor directory
+vendor/
+
+# Runtime and temporary files
+*.pid
+*.sock
+*.tmp
+
+# Environment files
+.env
