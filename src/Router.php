@@ -4,12 +4,12 @@ include 'UserManger.php';
 
 class Router
 {
-    private $requestMethod;
-    private $requestUri;
-    private $resource;
-    private $method;
-    private $id;
-    private $uriParts;
+    private mixed $requestMethod;
+    private mixed $requestUri;
+    private string $resource;
+    private mixed $method;
+    private ?string $id;
+    private array $uriParts;
 
     public function __construct()
     {
@@ -17,12 +17,12 @@ class Router
         $this->requestUri = $_SERVER['REQUEST_URI'];
         $uriParts = explode('/', trim($this->requestUri, '/'));
         $this->resource = $uriParts[0];
+        $this->uriParts = explode('/', trim($this->requestUri, '/'));
         $this->id = $uriParts[1] ?? null;
         $this->method = $_SERVER["REQUEST_METHOD"];
-        $this->uriParts = explode('/', trim($this->requestUri, '/'));
     }
 
-    public function route()
+    public function route(): void
     {
         if ($this->method === 'GET' && $this->requestUri === '/') {
             require_once '../public/test.php';
